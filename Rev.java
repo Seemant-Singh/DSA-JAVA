@@ -3,20 +3,21 @@ import java.util.Scanner;
 public class Rev{
     public static void main(String[] args){
         Scanner in=new Scanner(System.in);
-        // int[] arr={1,2,3,4,5,6,7};
-        String str="kunal";
-        char target='u';
-        System.out.println(linearsearch(str,target));
+        int[] arr={1,2,3,4,5,6,7};
+        // String str="kunal";
+        int target=3;
+        int s=0,e=4;
+        System.out.println(Arrays.toString(linearsearch(arr,target,s,e)));
     }
-    static boolean linearsearch(String str,char target){
-        if(str.length()==0)
-            return false;
+    static int[] linearsearch(int[] arr,int target,int s,int e){
+        if(arr.length==0)
+            return new int[]{-1};
  
-        for(char element:str.toCharArray())
+        for(int i=s;i<=e && i<arr.length-1;i++)
         {
-            if(target==element)
-                return true;
+            if(target==arr[i])
+                return new int[]{i};
         }
-        return false;
+        return new int[]{-1};
     }
 }
